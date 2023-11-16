@@ -1,0 +1,36 @@
+// Simulated cart data
+let cart = [];
+
+// Function to add items to the cart
+function addToCart(productId) {
+  // Assuming productId is passed to identify the product
+  let product = {
+    id: productId,
+    name: `Product ${productId}`,
+    price: 199.99 // Replace with actual prices
+  };
+
+  cart.push(product);
+  displayCart();
+}
+
+// Function to display items in the cart
+function displayCart() {
+  let cartItems = document.getElementById('cartItems');
+  cartItems.innerHTML = ''; // Clear previous content
+
+  cart.forEach(function(item) {
+    let listItem = document.createElement('li');
+    listItem.textContent = `${item.name} - $${item.price}`;
+    cartItems.appendChild(listItem);
+  });
+}
+
+// Function to simulate checkout
+function checkout() {
+  if (cart.length > 0) {
+    alert('Redirect to payment gateway or checkout page'); // Replace with actual checkout process
+  } else {
+    alert('Your cart is empty');
+  }
+}
